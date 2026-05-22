@@ -1,8 +1,8 @@
-# yuan-agent
+# xing-agent
 
 > A lightweight Agent chat workspace built with Vue 3, Vite, Pinia, TypeScript and Express.
 
-`yuan-agent` 是一个面向大模型对话与 Agent 场景的 Web 端演示项目，聚焦以下核心能力：
+`xing-agent` 是一个面向大模型对话与 Agent 场景的 Web 端演示项目，聚焦以下核心能力：
 
 - 流式响应与多轮上下文管理
 - RAG 检索增强与引用来源展示
