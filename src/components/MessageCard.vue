@@ -53,7 +53,7 @@ const props = defineProps<{
 }>();
 
 const html = computed(() => renderMarkdown(props.message.content || (props.message.status === 'streaming' ? '正在思考中…' : '')));
-const roleLabel = computed(() => (props.message.role === 'assistant' ? 'yuan-agent' : '你'));
+const roleLabel = computed(() => (props.message.role === 'assistant' ? 'xing-agent' : '你'));
 const avatar = computed(() => (props.message.role === 'assistant' ? '✦' : '你'));
 const timeLabel = computed(() =>
   new Intl.DateTimeFormat('zh-CN', {

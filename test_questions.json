@@ -1,0 +1,94 @@
+{
+  "test_questions": [
+    {
+      "id": "Q5",
+      "category": "评估方法",
+      "question": "论文中对比了哪三类RAG性能预测器？哪一类效果最好，哪一类几乎无效？",
+      "related_paper": "Rag Performance Prediction (2026)"
+    },
+    {
+      "id": "Q6",
+      "category": "评估方法",
+      "question": "为什么不能用Exact Match或F1分数准确评估RAG生成质量？论文提出了哪三种替代评估方法？",
+      "related_paper": "Rag Performance Prediction (2026)"
+    },
+    {
+      "id": "Q7",
+      "category": "前沿创新",
+      "question": "OKH-RAG推翻了RAG领域的哪个核心假设？这个假设存在什么问题？",
+      "related_paper": "OKH-RAG (2026)"
+    },
+    {
+      "id": "Q8",
+      "category": "前沿创新",
+      "question": "OKH-RAG提出的顺序感知超图（Order-Aware Hypergraph）相比传统超图有什么创新？",
+      "related_paper": "OKH-RAG (2026)"
+    },
+    {
+      "id": "Q9",
+      "category": "前沿创新",
+      "question": "OKH-RAG中可学习转移模型的作用是什么？实验证明打乱检索顺序对准确率有多大影响？",
+      "related_paper": "OKH-RAG (2026)"
+    },
+    {
+      "id": "Q10",
+      "category": "选择性RAG",
+      "question": "ACTD方法中的自知识判断模块是如何工作的？它解决了RAG的什么问题？",
+      "related_paper": "ACTD (2026)"
+    },
+    {
+      "id": "Q11",
+      "category": "选择性RAG",
+      "question": "ACTD设计的双策略（候选答案优化和任务分解）分别针对什么场景？",
+      "related_paper": "ACTD (2026)"
+    },
+    {
+      "id": "Q12",
+      "category": "选择性RAG",
+      "question": "ACTD在NQ、TriviaQA、PopQA三个数据集上的平均提升是多少？这说明什么问题？",
+      "related_paper": "ACTD (2026)"
+    },
+    {
+      "id": "Q13",
+      "category": "安全视角",
+      "question": "视觉文档RAG面临的主要安全威胁是什么？攻击者需要多少资源就能实现攻击？",
+      "related_paper": "One Pic is All it Takes (2026)"
+    },
+    {
+      "id": "Q14",
+      "category": "安全视角",
+      "question": "单图像投毒攻击可以实现哪两种攻击效果？白盒和黑盒攻击设定有什么区别？",
+      "related_paper": "One Pic is All it Takes (2026)"
+    },
+    {
+      "id": "Q15",
+      "category": "综合对比",
+      "question": "Vector RAG和Graph RAG分别适合什么类型的问答任务？请举例说明。",
+      "related_paper": "From vectors to knowledge graphs (2026)"
+    },
+    {
+      "id": "Q16",
+      "category": "综合对比",
+      "question": "RAG的评估框架中，检索质量、生成质量、系统性能三个维度分别用什么核心指标衡量？",
+      "related_paper": "Rag Performance Prediction (2026)"
+    },
+    {
+      "id": "Q17",
+      "category": "综合应用",
+      "question": "如何将OKH-RAG的顺序感知超图思想应用到ACTD的选择性RAG框架中？请提出一个结合思路。",
+      "related_paper": "OKH-RAG + ACTD"
+    },
+    {
+      "id": "Q18",
+      "category": "综合应用",
+      "question": "视觉文档RAG的安全漏洞如何通过Graph RAG的实体关系验证来防御？",
+      "related_paper": "One Pic + Graph RAG"
+    },
+    {
+      "id": "Q20",
+      "category": "前沿展望",
+      "question": "从集合检索到轨迹推理的范式转变对RAG系统设计有什么根本性影响？",
+      "related_paper": "OKH-RAG (2026)"
+    }
+  ]
+}

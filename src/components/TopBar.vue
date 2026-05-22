@@ -3,7 +3,7 @@
     <div class="topbar-left">
       <button class="nav-icon-button desktop-hidden" @click="$emit('menu')">☰</button>
       <div class="topbar-title-group">
-        <h1>yuan-agent</h1>
+        <h1>xing-agent</h1>
         <p>{{ titleText }}</p>
       </div>
     </div>
@@ -39,6 +39,6 @@ defineEmits<{
 }>();
 
 const titleText = computed(
-  () => `yuan-agent · 会话 ${props.conversationId.slice(0, 8)} · ${props.messageCount} 条消息 · ${props.documentCount} 份知识文档`
+  () => `xing-agent · 会话 ${props.conversationId.slice(0, 8)} · ${props.messageCount} 条消息 · ${props.documentCount} 份知识文档`
 );
 </script>

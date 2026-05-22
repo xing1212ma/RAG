@@ -16,8 +16,8 @@
             <span class="logo-orbit logo-orbit-b"></span>
           </div>
           <div class="brand-copy">
-            <p class="sidebar-overline">yuan-agent workspace</p>
-            <h2>yuan-agent</h2>
+            <p class="sidebar-overline">xing-agent workspace</p>
+            <h2>xing-agent</h2>
             <span class="brand-subline">多模态知识协作台</span>
           </div>
         </div>

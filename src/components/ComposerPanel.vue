@@ -15,7 +15,7 @@
     <textarea
       :value="modelValue"
       class="composer-input"
-      placeholder="问问 yuan-agent：请结合知识库总结当前项目的 RAG 与工具调用链路"
+      placeholder="问问 xing-agent：请结合知识库总结当前项目的 RAG 与工具调用链路"
       @input="$emit('update:modelValue', ($event.target as HTMLTextAreaElement).value)"
       @keydown.enter.exact.prevent="$emit('submit')"
     />

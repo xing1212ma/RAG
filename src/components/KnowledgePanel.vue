@@ -9,7 +9,7 @@
     </div>
 
     <label class="upload-dropzone">
-      <input accept=".md,.markdown,.txt,.json" multiple type="file" @change="handleFiles" />
+      <input accept=".md,.markdown,.txt,.json,.pdf" multiple type="file" @change="handleFiles" />
       <strong>上传文件</strong>
       <span>后端会自动分块、生成 embedding，并建立向量索引</span>
       <small>若网络无法访问 Qwen，会明确提示是 embedding / 连接失败。</small>

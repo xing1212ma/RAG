@@ -39,7 +39,7 @@ function createSession(title = '新对话'): ChatSession {
     title,
     createdAt: now,
     updatedAt: now,
-    messages: [createInitialAssistantMessage('你好，我是你的 yuan-agent 助手。你可以直接提问，也可以先上传资料，让我通过后端向量检索结合工具调用来回答。')]
+    messages: [createInitialAssistantMessage('你好，我是你的 xing-agent 助手。你可以直接提问，也可以先上传资料，让我通过后端向量检索结合工具调用来回答。')]
   };
 }
 
@@ -104,7 +104,7 @@ function deserializeSessions() {
       const title = typeof session.title === 'string' && session.title.trim() ? session.title : '新对话';
       const messages = Array.isArray(session.messages) && session.messages.length
         ? session.messages
-        : [createInitialAssistantMessage('你好，我是你的 yuan-agent 助手。')];
+        : [createInitialAssistantMessage('你好，我是你的 xing-agent 助手。')];
 
       return {
         ...session,

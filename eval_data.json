@@ -1,0 +1,105 @@
+[
+  
+  {
+    "question": "为什么不能用Exact Match或F1分数准确评估RAG生成质量？论文提出了哪三种替代评估方法？",
+    "answer": "根据上下文，Exact Match（EM）和F1分数不能准确评估RAG生成质量的原因在于：它们不能反映生成答案的质量，高召回率会损害答案质量，同时它们仅关注文档排序。论文提出的三种替代评估方法为：1）生成与事实性指标，包括答案相关性、忠实度、BERTScore等；2）使用基于LLM或人工的评判；3）成对A/B测试。",
+    "contexts": [
+      "Most factoid question answering benchmarks, including Natural Questions (NQ) [18], TriviaQA [19], HotpoQA [20],\nand PopQA [21], rely on Exact Match (EM) and token-level F1 as their primary evaluation metrics. EM is a binary,\nfactoid-level accuracy measure that evaluates whether the reference answer ",
+      "Do not reflect quality of generated answers; high\nrecall can harm answer quality; focus solely on\ndocument ranking\nGeneration and factuality metrics (answer relevance, faithfulness, BERTScore, QAGS, QAFactEval, FEQA, FactCC,\nQ2)\nUse LLM-based or human judges to assess whether answers\nare supported b",
+      "it indicates better performance in delivering helpful and grounded\nanswers from a user perspective [293].\n• Pairwise A/B Testing: Another human eval approach is to perform A/B tests or preference comparisons [295]. Here, humans\nare shown outputs from two systems (e.g., RAG vs. Graph RAG,\nor with vs.",
+      "with fuller method reporting, while deprioritizing non-archival\nor practice-only write-ups. Moreover, some industry evidence remains inaccessible or based on private datasets, limiting external\nreproducibility.\n• Heterogeneous benchmarks and metrics: Cross-paper comparison is constrained by inconsis"
+    ],
+    "ground_truth": "Exact Match和F1分数不能反映生成答案的实际质量，高召回率可能损害答案质量，且它们仅关注文档排序而忽略生成内容的语义充分性和事实正确性。论文提出的三种替代评估方法是：1）生成与事实性指标（答案相关性、忠实度、BERTScore、QAGS等），2）使用基于LLM或人工的评判来评估答案是否基于检索内容，3）成对A/B测试用于比较不同系统版本的输出质量。"
+  },
+  {
+    "question": "OKH-RAG推翻了RAG领域的哪个核心假设？这个假设存在什么问题？",
+    "answer": "根据上下文，OKH-RAG推翻了RAG领域的排列不变性假设。该假设认为检索到的信息顺序不影响推理结果，但实际中忽略了顺序依赖，导致在顺序敏感问答任务中表现不佳，容易产生推理错误或幻觉。",
+    "contexts": [
+      "retrieval misses can cause residual hallucinations as the LLM falls back\non its parametric knowledge, while inherited biases from source documents can be amplified by the generator, posing significant ethical and\nreliability risks [29,177,321].\nComputer Science Review 61 (2026) 100925\n32\nA.A. Kamali",
+      "retrieval quality and answer faithfulness (groundedness) to the retrieved context [35,240]. A RAG system can obtain a high ROUGE score\nwhile hallucinating, or a low ROUGE score while providing a correct,\nparaphrased, and well-grounded answer.\nFrom a deployment perspective, RAG systems must therefore",
+      "Records excluded during\ntitle/abstract screening:\n(n = 800)\nReason 1: Not focused on RAG (n = 650)\nReason 2: Wrong publication\ntype\n(n = 150)\nEligibility Reports sought for retrieval (n = 501)\nReports not retrieved (full-text\nunavailable)\n(n = 24)\nReports assessed for eligibility (n = 477)\nReports e",
+      "(it precedes many modern LLMs and vector DBs) [26]. Gao et al. (2023)\nfocus specifically on RAG for large LMs, proposing a detailed taxonomy\nfrom naïve to modular RAG and analyzing retriever/generator design\nchoices [2]. This work excels at classifying RAG variants but largely\naddresses only text-ba"
+    ],
+    "ground_truth": "OKH-RAG推翻了RAG领域检索到的证据可以被视为无序集合这一核心假设。该假设存在以下问题：许多推理任务的结果依赖于交互发生的顺序和过程，将知识视为无序事实会忽略高阶依赖关系（≥3个要素的联合约束）和时序因果结构（evolving conditions），无法准确建模复杂推理路径，导致推理轨迹不完整或逻辑错误。"
+  },
+  {
+    "question": "OKH-RAG提出的顺序感知超图（Order-Aware Hypergraph）相比传统超图有什么创新？",
+    "answer": "根据提供的上下文，OKH-RAG提出的顺序感知超图相比传统超图的创新主要体现在：它将顺序作为第一类维度，从基于集合的选择转向基于轨迹的检索。传统超图方法通常忽略时序动态，而OKH-RAG通过结合超图结构与时序动态，直接建模高阶依赖关系，并解决动态高阶交互建模问题。",
+    "contexts": [
+      "complementary advances: hypergraph representations for modeling higher-order dependencies, and order-aware\ninference for capturing interaction dynamics. By integrating these into a single framework, OKH-RAG enables LLMs\nto reason over processes rather than static snapshots. Our contributions are sum",
+      "representation with order-awareness. Unlike graph-based RAG, OKH-RAG models higher-order dependencies directly\nvia hyperedges. Unlike static hypergraph methods, it treats order as a first-class dimension, moving from set-based\nselection to trajectory-based retrieval. By treating retrieval as inferen",
+      "KNOWLEDGE IS NOT STATIC: ORDER-AWARE HYPERGRAPH\nRAG FOR LANGUAGE MODELS\nKeshu Wu1\n, Chenchen Kuai1\n, Zihao Li1\n, Jiwan Jiang1\n, Shiyu Shen2\n,\nShian Wang3\n, Chan-Wei Hu1\n, Zhengzhong Tu1\n, Yang Zhou1,∗\n1Texas A&M University\n2University of Illinois Urbana-Champaign\n3The University of Kansas\nABSTRACT\nR",
+      "Knowledge Hypergraph\nConstruction & Order Learning\nOrder-Aware\nHypergraph Retrieval\nOrder Learning\nModule\nEntity &\nRelation\nExtraction\nExtraction &\nHyperedge\nFormation\nKnowledge Hypergraph\nOrder-Aware\nKnowledge Hypergraph\nTransition Model\nPrompt\nConstruction\nQuery\nEncoder\nTrajectory Search\nModule\nRe"
+    ],
+    "ground_truth": "OKH-RAG的顺序感知超图相比传统超图的核心创新在于：1）将顺序作为一等结构属性建模，引入显式的优先结构（precedence structure）；2）从集合检索转向轨迹检索，将检索视为对交互序列的推理而非静态匹配；3）通过learned precedence增强超边，显式建模高阶交互中的时序依赖和动态演化过程；4）使超图能够表征过程性知识（如步骤序列、因果链）而非仅静态关联。"
+  },
+  {
+    "question": "OKH-RAG中可学习转移模型的作用是什么？实验证明打乱检索顺序对准确率有多大影响？",
+    "answer": "根据提供的上下文，OKH-RAG中可学习转移模型的作用是从数据中直接推断优先级，无需显式的时间监督。实验证明，打乱检索顺序使整体准确率从0.534降至0.487，这是观察到的最大降幅。",
+    "contexts": [
+      "provides the most direct evidence: OKH-RAG (shuffled) reduces overall accuracy from 0.534 to 0.487, the largest drop\nobserved, despite identical retrieved content. This shows that performance depends not only on which hyperedges are\nretrieved, but also on their order. The component analysis further ",
+      "reasoning processes. A learned transition model infers precedence directly from data without requiring\nexplicit temporal supervision. We evaluate OKH-RAG on order-sensitive question answering and\nexplanation tasks, including tropical cyclone and port operation scenarios. OKH-RAG consistently\noutperf",
+      "consequences—capabilities inaccessible to generators receiving unordered evidence. When multiple trajectories are\navailable, the primary mode presents all paths in a single prompt for cross-referencing; a fallback mode aggregates\nindependent per-trajectory answers via confidence-weighted voting or a",
+      "a primary driver of reasoning quality, (2) effective trajectories must be both ordered and complete, and (3) learned\nprecedence modeling provides additional benefits beyond heuristic constraints. Together, these findings confirm that\nOKH-RAG's gains arise specifically from order-aware trajectory ret"
+    ],
+    "ground_truth": "可学习转移模型的作用是从数据中自动推断超边之间的先后顺序（precedence），无需显式时序监督信号，是实现顺序感知检索的核心机制，能提供超越启发式约束的额外收益。实验证明打乱检索顺序后整体准确率从0.534下降至0.487，降幅达0.047，是实验中观察到的最大性能下降，尽管检索内容完全相同。这直接证明顺序信息对推理质量至关重要。"
+  },
+  {
+    "question": "ACTD方法中的自知识判断模块是如何工作的？它解决了RAG的什么问题？",
+    "answer": "根据提供的上下文，ACTD方法中的自知识判断模块的功能是：动态判断模型是否能够利用其内部知识解决问题，并据此选择生成答案的最优路径。然而，上下文并未详细说明该模块的具体工作机制。关于它解决了RAG的什么问题，上下文仅提到ACTD旨在有效应对现有RAG方法面临的挑战，但未明确列出具体问题。",
+    "contexts": [
+      "To effectively address the challenges faced by existing RAG methods, we introduce an innovative dual-strategy retrieval-augmented generation, the ACTD method. This method systematically addresses diverse question types through a Self-Knowledge Judgment Module, a\nSelf-Knowledge Optimization Module, a",
+      "Predict_answer: Eenasul Fateh\nPattern Recognition 178 (2026) 113430\n8\nJ. Lv et al.\nnal selection mechanism to filter the outputs, ultimately producing the\ncorrect answer.\nThe other case, shown in Table 8, involves a question from the\nHotpotQA dataset and represents a multi-hop question. In this scen",
+      "Module, and Task Decomposition Module–which dynamically determine whether the model can solve a problem with its internal knowledge\nand select the optimal path for generating answers accordingly. Experimental results demonstrate that ACTD significantly outperforms existing\nRetrieval-Augmented Genera",
+      "thereby ensuring answer quality while enhancing overall reasoning efficiency (Table 1).\n4. Experiments\nThis section first presents the experimental settings and the baseline models employed for comparison. Subsequently, we investigate the\nfollowing research questions through our experiments:\n• Q1: H"
+    ],
+    "ground_truth": "ACTD的自知识判断模块通过评估模型对当前问题的参数化知识掌握程度，预测标签以判断是否需要外部检索。它解决了标准RAG方法中'无论问题是否需要都默认执行检索'的问题，实现了智能分流——无需检索的问题直接进入自知识优化模块回答，需要检索的问题则进行外部知识检索，从而避免不必要的检索开销和噪声引入，提升问答效率和准确性。"
+  },
+  
+  {
+    "question": "ACTD在NQ、TriviaQA、PopQA三个数据集上的平均提升是多少？这说明什么问题？",
+    "answer": "根据提供的上下文，ACTD在NQ、TriviaQA、PopQA三个数据集上的平均提升为：相对于Iter-RetGen方法，Exact Match指标平均提升0.75个百分点，同时平均F1指标提升1.70个百分点。这说明ACTD方法在常用问答数据集上整体表现优于现有RAG方法，能够有效缓解幻觉问题，提升知识利用和问题解决能力。",
+    "contexts": [
+      "enabling better problem-solving.\n• The proposed ACTD method demonstrates strong performance on\nthe NQ [7], TriviaQA [8], and PopQA [9] datasets. On average,\nACTD achieves a +0.75 percentage points improvement in Exact\nMatch (EM) over Iter-RetGen [10], and a +1.70 percentage points\nincrease in averag",
+      "RQ1: How does our proposed ACTD method perform compared\nto existing RAG methods on commonly used QA datasets?\nThe experimental results are summarized in Table 3 and highlight\nthe following key findings:\n(1) Overall performance - ACTD achieves the best average results\nacross all datasets. On average,",
+      "(4) Hallucination mitigation - ACTD demonstrates notable advantages in reducing hallucinations common in RAG methods. For example, on TriviaQA, IRCoT suffers performance degradation due to irrelevant retrieved content, whereas ACTD's three modules effectively alleviate hallucinations and enhance kno",
+      "Table 3\nComparative experimental results. Bold numbers indicate the best performance among all methods. Following the\nsetting of FlashRag, the experiment uses EM indicators to evaluate the performance on NQ and TriviaQA datasets,\nand F1 indicators on HotpotQA and PopQA datasets. In addition, we also"
+    ],
+    "ground_truth": "ACTD在NQ、TriviaQA、PopQA三个数据集上相比Iter-RetGen在Exact Match指标上平均提升0.75个百分点，在F1指标上平均提升1.70个百分点。这说明ACTD的三模块设计（自知识判断、自我知识优化和任务分解）在不同类型的问答任务上均能稳定提升性能，尤其在需要外部知识的任务上优势显著，验证了其动态检索决策和抗幻觉机制的有效性。"
+  },
+  
+  {
+    "question": "单图像投毒攻击可以实现哪两种攻击效果？白盒和黑盒攻击设定有什么区别？",
+    "answer": "根据上下文，单图像投毒攻击可以实现两种攻击效果：针对检索的攻击和针对生成的攻击。白盒攻击设定下，攻击者拥有对嵌入模型E和视觉语言模型G的完全知识和访问权限，是最强的攻击假设；黑盒攻击设定下，攻击者没有这种完全访问权限。",
+    "contexts": [
+      "In this paper, we demonstrate the vulnerability of VD-RAG to poisoning attacks targeting\nboth retrieval and generation. We define two attack objectives and demonstrate that both\ncan be realized by injecting only a single adversarial image into the KB. Firstly, we introduce\na targeted attack against ",
+      "from full white-box access to the black-box setting.\nWhite-box Attack. In the white-box setting the attacker has full knowledge of and access to the embedding\nmodel E and the VLM G. This is the strongest assumption and thus yields the strongest attack. However, it\nis a practical concern due to poten",
+      "consider the white-box attack setting by adapting projected gradient descent (PGD) (Madry et al., 2017)\nwith a multi-objective loss, which we refer to as MO-PGD, to balance the optimization of the retrieval\nand generation objectives when crafting the malicious image. First, we propose a stealthy tar",
+      "also conducted our experiments on open-weight models only, as white-box attacks could only be evaluated\nagainst those. Investigating the vulnerability of proprietary closed-weight models to black-box attacks is an\ninteresting direction for future work.\n9 Conclusion\nIn this paper we demonstrate the v"
+    ],
+    "ground_truth": "单图像投毒攻击可实现两种攻击效果：1）拒绝服务（DoS）攻击，破坏VD-RAG系统的可用性；2）定向虚假信息（targeted disinformation）攻击，在特定话题上传播恶意构造的错误信息。白盒和黑盒攻击的主要区别在于：白盒攻击拥有对嵌入模型和视觉语言模型（VLM）的完全知识和访问权限，可利用梯度信息精确优化恶意图像，攻击效果最强；黑盒攻击不了解系统内部结构，仅能通过输入输出交互进行试探，攻击难度更高。"
+  },
+  {
+    "question": "Vector RAG和Graph RAG分别适合什么类型的问答任务？请举例说明。",
+    "answer": "根据上下文，Vector RAG适合需要详细文本相似度匹配的问答任务，例如在需要精确匹配文本片段或进行细粒度语义相似度比较的场景中表现更好。Graph RAG适合涉及关系推理的问答任务，尤其是需要多跳推理、捕捉实体间关系或结构化知识的复杂问题。",
+    "contexts": [
+      "• Reasoning and Answer Correctness on Multi-hop QA:\nUltimately, the accuracy of answers on multi-hop questions\nis a key metric for Graph RAG [299]. Standard QA metrics (EM,\nF1) are applied on multi-hop benchmarks to see if the final answer\nis correct. A Graph RAG's success is often demonstrated by h",
+      "in questions that involve relational reasoning, whereas a vector\nRAG might do better on questions that need very detailed textual\nsimilarity matching [6,301]. Depending on the metric emphasized,\none system may appear better – e.g., a study noted that if you evaluate purely by ROUGE (favoring detaile",
+      "Features a comprehensive \"Assurance\nStack\" (LLM Guardrail, LLM Judge).\nTechnical Support Q&A Capturing relational context between\nsupport tickets that is lost in standard\nvector RAG, leading to faster issue\nresolution.\nGraph RAG constructed from historical\nsupport tickets, preserving intra-issue\nstr",
+      "relationships is typically more straightforward than re-embedding\nentire corpora. Graph databases, therefore, allow for more agile\nand dynamic adjustments to the knowledge scope.\nThese mechanism-level advantages translate into broader systemlevel trade-offs between vector- and graph-based designs. T"
+    ],
+    "ground_truth": "Vector RAG适合需要详细文字相似性匹配的单跳事实型问答任务，如从财报中检索某年净利润的具体数值，通过向量相似度从非结构化文本中快速检索相关段落。Graph RAG适合需要关系推理的多跳问答任务，如查询某部电影的导演或某位科学家的主要贡献，通过知识图谱中的结构化数据进行实体关系遍历和路径推理。两者在设计空间中占据互补区域，混合方案在多源企业知识库等场景中展现出更强适应性。"
+  },
+  {
+    "question": "RAG的评估框架中，检索质量、生成质量、系统性能三个维度分别用什么核心指标衡量？",
+    "answer": "根据提供的上下文，RAG评估框架中：检索质量的核心指标包括context_relevancy和context_recall；生成质量的核心指标包括faithfulness。系统性能方面，上下文中未提及相关指标，因此无法提供具体信息。",
+    "contexts": [
+      "Evaluating RAG and Graph RAG systems requires measuring both\nretrieval and generation performance through a multi-pronged strategy [35,238]. Retrieval is assessed with precision, recall, MRR, MAP,\nand NDCG to quantify hit rate and ranking quality, and is benchmarked on multi-hop QA datasets (Natural",
+      "knowledge [240]. The core metrics measured by such frameworks, including faithfulness and relevancy, are summarized in\nTable 7.\n• BERTScore and Similar Metrics: As mentioned, BERTScore is often used to complement ROUGE/EM in evaluating RAG outputs\n[249]. It can be seen as part of the evaluation tool",
+      "Table 7\nCore Metrics of the RAGAS Framework for Evaluating RAG Pipelines.\nCategory Metric Description\nRetrieval context_relevancy Measures the relevance of the retrieved\ncontext.\ncontext_recall Measures how well the retrieval\nsystem recalls relevant information.\nGeneration faithfulness Measures the ",
+      "Label correctness + reasoning-path quality on\ngraphs\nLabel Acc; path evaluation\nSQuALITY [265] Query-focused summarization\n(stories)\nText 1,000+ long stories; 5,000+ humanwritten summaries Graph vs. Vector for long-form summarization ROUGE-2/L; BERTScore\nODSum [267] Multi-document summarization Text"
+    ],
+    "ground_truth": "RAG评估框架中三个维度的核心指标：1）检索质量用precision、recall、MRR、MAP、NDCG以及RAGAS框架中的context_relevancy和context_recall衡量，评估检索结果的排序质量和覆盖面；2）生成质量用faithfulness（忠实性）衡量，评估答案是否基于检索到的上下文，还可用BERTScore等语义相似度指标补充；3）系统性能在上下文中未明确提及具体指标，实际部署中还需考虑延迟、吞吐量和资源消耗等工程指标。"
+  }
+  
+]

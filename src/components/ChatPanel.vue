@@ -2,7 +2,7 @@
   <section class="conversation-shell">
     <div v-if="messages.length <= 1" class="conversation-empty">
       <div class="empty-hero">
-        <div class="hero-chip">yuan-agent</div>
+        <div class="hero-chip">xing-agent</div>
         <h2>今天想探索什么？</h2>
         <p>你可以直接聊天，也可以上传文档，让 Agent 自动调用后端工具完成向量检索与知识增强回答。</p>
       </div>
